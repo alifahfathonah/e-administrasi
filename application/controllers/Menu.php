@@ -75,6 +75,15 @@ class Menu extends CI_Controller {
         $this->load->view('index',$data);
     }
 
+    public function pegawai($id)
+    {
+        $data['mUploadBerkas'] = true;
+        $data['all_berkas'] = $this->pegawai_m->getBerkas($id);
+        $data['row'] = $this->pegawai_m->getByIdPNS($id);
+        $data['content'] = 'berkas';
+        $this->load->view('index',$data);
+    }
+
     public function ubah_password(){
         if($this->session->userdata('level')=='pegawai'){
             $table = 'pegawai';
@@ -93,7 +102,7 @@ class Menu extends CI_Controller {
 
     public function logout(){
         $this->session->sess_destroy();
-        redirect('login');
+        redirect('welcome');
     }
 
 }

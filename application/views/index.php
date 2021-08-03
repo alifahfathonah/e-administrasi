@@ -77,7 +77,7 @@
             <div class="sidebar-heading">
                 Daftar Menu
             </div>
-            <?php if($this->session->userdata('level')=='admin'): ?>
+            <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='kasubag' || $this->session->userdata('level')=='staf'): ?>
             <!-- Nav Item - Data Pegawai -->
             <li class="nav-item <?=isset($mDataPegawai)?'active':'';?>">
                 <a class="nav-link <?=isset($mDataPegawai)?'':'collapsed';?>" href="#" data-toggle="collapse"
@@ -88,8 +88,10 @@
                 <div id="collapsePages" class="collapse <?=isset($mDataPegawai)?'show':'';?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        <?php if($this->session->userdata('level')=='admin'): ?>
                         <a class="collapse-item <?=isset($mJabatan)?'active':'';?>"
                             href="<?=base_url('menu/jabatan');?>">Jabatan</a>
+                        <?php endif; ?>
                         <a class="collapse-item <?=isset($mPNS)?'active':'';?>"
                             href="<?=base_url('menu/pns');?>">PNS</a>
                         <a class="collapse-item <?=isset($mHonor)?'active':'';?>"
@@ -109,11 +111,21 @@
                     <i class="fas fa-fw fa-chart-line"></i>
                     <span>Kenaikan Gaji Berkala</span></a>
             </li>
+            <?php endif; ?>
+            <?php if($this->session->userdata('level')=='admin'): ?>
             <!-- Nav Item - Pengguna -->
             <li class="nav-item <?=isset($mPengguna)?'active':'';?>">
                 <a class="nav-link" href="<?=base_url('menu/pengguna');?>">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Pengguna</span></a>
+            </li>
+            <?php endif; ?>
+            <?php if($this->session->userdata('level')=='pegawai'): ?>
+            <!-- Nav Item - Pengguna -->
+            <li class="nav-item <?=isset($mUploadBerkas)?'active':'';?>">
+                <a class="nav-link" href="<?=base_url('pegawai/berkas/'.$this->session->userdata('iduser'));?>">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Upload Berkas</span></a>
             </li>
             <?php endif; ?>
             <!-- Divider -->

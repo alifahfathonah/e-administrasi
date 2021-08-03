@@ -49,7 +49,7 @@ class Login extends CI_Controller {
                         "level"     =>'pegawai'
                     ];
                     $this->session->set_userdata($data_session);
-                    redirect(base_url('menu/pegawai/'.$this->session->userdata('id_user')));
+                    redirect(base_url('menu/pegawai/'.$this->session->userdata('iduser')));
                 }
                 else{
                     $this->session->set_flashdata('error', 'Password Anda Salah !');
