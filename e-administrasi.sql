@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 03, 2021 at 02:11 AM
+-- Generation Time: Aug 03, 2021 at 02:39 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -142,8 +142,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `id_jabatan`, `nip`, `nama`, `tempat_lahir`
 (19, 18, '196606071988032014', 'Yosina Orboi, SKM.', 'Manokwari', '1966-06-07', 'K.Protestan', 'E.685512', '1988-03-01', '2560/KANWIL/SK/TU-1/', '1988-07-06', '1990-01-01', '4483/KANWIL/SK/TU-1/', '1989-12-12', 'Kesmas', 'Dinas Kesehatan', '2019-10-01', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
 (20, 19, '197003121993021005', 'Marthen Lallo Rantetampang, SKM, M.Si', 'Bibang Desa Bulo', '1970-03-12', 'K.Protestan', 'G.106764', '1993-02-01', 'KP.00.02.1.2441', '1993-05-15', '1995-02-01', 'KP.00.03.1.5640', '1994-12-21', 'Kesmas', 'Dinas Kesehatan', '2016-10-01', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
 (21, 17, '197312301997122001', 'Regina Ester Paririe, AMK', 'Jayapura', '1973-12-30', 'K.Protestan', 'J.153248   ', '1997-12-01', 'KP.00.02.2.4.05176', '1998-03-09', '1999-08-01', 'KP.00.03.1.2287', '2020-08-17', 'Perawat', 'Dinas Kesehatan', '2017-05-19', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
-(22, 19, '196411301989031011', 'Suharso, SKM, M.Si', 'Semarang', '1964-11-30', 'Islam', 'E.737373', '1989-03-01', 'KP. 00.02.2.47173', '1989-06-01', '1990-09-01', '3231/KANWIL/SK/TU-1V', '1990-08-04', 'Kesmas', 'Dinas Kesehatan', '2014-10-01', 'fungsional', '$2y$10$m3yYhXEaurhWwO0pDINOROdOd.n3T/fcXELXHzRRt9UWi1RS1V6E2'),
-(27, 18, 'adas', 'asd', 'asd', '0000-00-00', 'Islam', 'sada', '0000-00-00', 'asd', '0000-00-00', '0000-00-00', 'asdasd', '0000-00-00', 'asdasd', 'adas', '0000-00-00', 'fungsional', '$2y$10$x6VvNOlwWMZxve8y4a/qfeKS8PPtnGAs3B9r3dmBBw0cEmDS262J2');
+(22, 19, '196411301989031011', 'Suharso, SKM, M.Si', 'Semarang', '1964-11-30', 'Islam', 'E.737373', '1989-03-01', 'KP. 00.02.2.47173', '1989-06-01', '1990-09-01', '3231/KANWIL/SK/TU-1V', '1990-08-04', 'Kesmas', 'Dinas Kesehatan', '2014-10-01', 'fungsional', '$2y$10$m3yYhXEaurhWwO0pDINOROdOd.n3T/fcXELXHzRRt9UWi1RS1V6E2');
 
 -- --------------------------------------------------------
 
@@ -176,7 +175,8 @@ INSERT INTO `pengguna` (`idpengguna`, `nama_lengkap`, `username`, `password`, `l
 -- Indexes for table `berkas`
 --
 ALTER TABLE `berkas`
-  ADD PRIMARY KEY (`id_berkas`);
+  ADD PRIMARY KEY (`id_berkas`),
+  ADD KEY `fk_berkas_pegawai1_idx` (`id_pegawai`);
 
 --
 -- Indexes for table `honor`
@@ -194,7 +194,8 @@ ALTER TABLE `jabatan`
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD PRIMARY KEY (`id_pegawai`);
+  ADD PRIMARY KEY (`id_pegawai`),
+  ADD KEY `fk_pegawai_jabatan_idx` (`id_jabatan`);
 
 --
 -- Indexes for table `pengguna`
@@ -222,7 +223,7 @@ ALTER TABLE `honor`
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -235,6 +236,22 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `pengguna`
   MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `berkas`
+--
+ALTER TABLE `berkas`
+  ADD CONSTRAINT `fk_berkas_pegawai1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD CONSTRAINT `fk_pegawai_jabatan` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
