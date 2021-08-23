@@ -91,7 +91,8 @@
                         <img src="<?=base_url('assets/img/');?>logopabar.png" alt="Home" height="640">
                     </div>
                     <div class="text-center d-sm-none">
-                        <img src="<?=base_url('assets/img/');?>logopabar.png" alt="Home" height="340" width="100%">
+                        <img src="<?=base_url('assets/img/');?>logopabar.png" alt="Gambar Mobile" height="340"
+                            width="100%">
                     </div>
                 </div>
                 <!-- /.container-fluid -->
