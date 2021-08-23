@@ -70,13 +70,13 @@
                         <li class="nav-item">
                             <div class="nav-link text-white" id="tanggal"></div>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item  d-none d-sm-block">
                             <div class="nav-link text-white" id="jam"></div>
                         </li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-sm-block"></div>
 
-                        <li class="nav-item d-none d-sm-block">
+                        <li class="nav-item d-sm-block">
                             <a href="<?=base_url('login');?>" class="nav-link text-white">LOGIN</a>
                         </li>
 
@@ -87,8 +87,11 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="text-center">
+                    <div class="text-center  d-none d-sm-block">
                         <img src="<?=base_url('assets/img/');?>logopabar.png" alt="Home" height="640">
+                    </div>
+                    <div class="text-center d-sm-none">
+                        <img src="<?=base_url('assets/img/');?>logopabar.png" alt="Home" height="340" width="100%">
                     </div>
                 </div>
                 <!-- /.container-fluid -->
