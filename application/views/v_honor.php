@@ -29,6 +29,7 @@
                         <th>Agama</th>
                         <th>Unit Kerja</th>
                         <th>SK</th>
+                        <th>Status</th>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <th width="100">Aksi</th>
                         <?php endif; ?>
@@ -43,6 +44,7 @@
                         <td><?= $row['agama']; ?></td>
                         <td><?= ucwords($row['unit_kerja']); ?></td>
                         <td><?= ucwords($row['sk']); ?></td>
+                        <td><?= ucwords($row['status']); ?></td>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <td>
                             <a href="<?=base_url('pegawai/edit_honor/').$row['id_honor'];?>"

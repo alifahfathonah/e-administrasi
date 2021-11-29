@@ -17,7 +17,7 @@
                                 value="<?=isset($edit)?$row['nama']:'';?>" placeholder="Masukkan Nama" />
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Tempat Lahir</label>
                             <input type="text" class="form-control" name="tempat_lahir"
@@ -25,14 +25,14 @@
                                 placeholder="Masukkan Tempat Lahir" />
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" name="tgl_lahir"
                                 value="<?=isset($edit)?$row['tgl_lahir']:'';?>">
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">Agama</label>
                             <select class="form-control" name="agama">
@@ -54,14 +54,14 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Unit Kerja</label>
                             <input type="text" class="form-control" name="unit_kerja"
                                 value="<?=isset($edit)?$row['unit_kerja']:'';?>" placeholder="Masukkan Unit Kerja" />
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">SK</label>
                             <select class="form-control" name="sk">
@@ -69,6 +69,18 @@
                                     Ada</option>
                                 <option value="belum ada" <?=isset($edit)?$row['sk']=='belum ada'?'selected':'':'';?>>
                                     Belum Ada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Status</label>
+                            <select class="form-control" name="status">
+                                <option value="Aktif" <?=isset($edit)?$row['status']=='Aktif'?'selected':'':'';?>>
+                                    Aktif</option>
+                                <option value="Non Aktif"
+                                    <?=isset($edit)?$row['status']=='Non Aktif'?'selected':'':'';?>>Non Aktif
+                                </option>
                             </select>
                         </div>
                     </div>

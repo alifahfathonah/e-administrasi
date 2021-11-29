@@ -38,6 +38,7 @@
                         <th>Profesi</th>
                         <th>Unit Kerja</th>
                         <th>Tanggal Jabatan</th>
+                        <th>Status</th>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <th width="100">Aksi</th>
                         <?php endif; ?>
@@ -65,6 +66,7 @@
                         <td><?= $row['profesi']; ?></td>
                         <td><?= $row['unit_kerja']; ?></td>
                         <td><?= $row['tgl_jabatan']; ?></td>
+                        <td><?= $row['status']; ?></td>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <td>
                             <a href="<?=base_url('pegawai/edit_pns/').$row['id_pegawai'];?>"

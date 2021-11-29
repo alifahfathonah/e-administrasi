@@ -42,6 +42,7 @@ td {
             <th>Tanggal PNS</th>
             <th>Profesi</th>
             <th>Tanggal Jabatan</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -62,6 +63,7 @@ td {
             <td><?=$row['tgl_pns']; ?></td>
             <td><?=$row['profesi']; ?></td>
             <td><?=$row['tgl_jabatan']; ?></td>
+            <td><?=$row['status']; ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

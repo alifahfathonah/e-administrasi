@@ -34,6 +34,7 @@ td {
             <th>Agama</th>
             <th>Unit Kerja</th>
             <th>SK</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -46,6 +47,7 @@ td {
             <td><?=$row['agama']; ?></td>
             <td><?=$row['unit_kerja']; ?></td>
             <td><?=$row['sk']; ?></td>
+            <td><?=$row['status']; ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

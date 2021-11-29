@@ -124,14 +124,14 @@
                                 value="<?=isset($edit)?$row['unit_kerja']:'';?>" placeholder="Masukkan Unit Kerja" />
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label class="control-label">Tgl Jabatan</label>
                             <input type="date" class="form-control" name="tgl_jabatan"
                                 value="<?=isset($edit)?$row['tgl_jabatan']:'';?>">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label class="control-label">Jabatan</label>
                             <select class="form-control select2" data-live-search="true" name="id_jabatan">
@@ -141,6 +141,18 @@
                                     <?=strtoupper($lj['pangkat'].' '.$lj['golongan']);?>
                                 </option>
                                 <?php endforeach;?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Status</label>
+                            <select class="form-control" name="status">
+                                <option value="Aktif" <?=isset($edit)?$row['status']=='Aktif'?'selected':'':'';?>>
+                                    Aktif</option>
+                                <option value="Non Aktif"
+                                    <?=isset($edit)?$row['status']=='Non Aktif'?'selected':'':'';?>>Non Aktif
+                                </option>
                             </select>
                         </div>
                     </div>

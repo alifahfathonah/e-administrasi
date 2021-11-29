@@ -47,6 +47,7 @@ class Pegawai extends CI_Controller {
                 "profesi"       =>$this->input->post('profesi', true),
                 "unit_kerja"    =>$this->input->post('unit_kerja', true),
                 "tgl_jabatan"   =>$this->input->post('tgl_jabatan', true),
+                "status"        =>$this->input->post('status', true),
                 "password"      =>password_hash($this->input->post('nip', true),PASSWORD_DEFAULT)
 
             ];
@@ -83,7 +84,8 @@ class Pegawai extends CI_Controller {
             "tgl_pns"       =>$this->input->post('tgl_pns', true),
             "profesi"       =>$this->input->post('profesi', true),
             "unit_kerja"    =>$this->input->post('unit_kerja', true),
-            "tgl_jabatan"   =>$this->input->post('tgl_jabatan', true)
+            "tgl_jabatan"   =>$this->input->post('tgl_jabatan', true),
+            "status"        =>$this->input->post('status', true)
         ];
         
         $this->pegawai_m->updatePNS($data,$this->input->post('id_pegawai', true));
@@ -107,7 +109,8 @@ class Pegawai extends CI_Controller {
             "tgl_lahir"     =>$this->input->post('tgl_lahir', true),
             "agama"         =>$this->input->post('agama', true),
             "unit_kerja"    =>$this->input->post('unit_kerja', true),
-            "sk"            =>$this->input->post('sk', true)
+            "sk"            =>$this->input->post('sk', true),
+            "status"        =>$this->input->post('status', true)
             
         ];
         $this->pegawai_m->addHonor($data);
@@ -133,7 +136,8 @@ class Pegawai extends CI_Controller {
             "tgl_lahir"     =>$this->input->post('tgl_lahir', true),
             "agama"         =>$this->input->post('agama', true),
             "unit_kerja"    =>$this->input->post('unit_kerja', true),
-            "sk"            =>$this->input->post('sk', true)
+            "sk"            =>$this->input->post('sk', true),
+            "status"        =>$this->input->post('status', true)
         ];
         
         $this->pegawai_m->updateHonor($data,$this->input->post('id_honor', true));
