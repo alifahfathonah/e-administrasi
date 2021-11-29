@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 03, 2021 at 02:39 AM
+-- Generation Time: Nov 29, 2021 at 05:35 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -62,18 +62,19 @@ CREATE TABLE `honor` (
   `tgl_lahir` date NOT NULL,
   `agama` enum('Islam','K.Protestan','K.Katolik','Hindu','Budha','Konghucu') NOT NULL,
   `unit_kerja` varchar(25) NOT NULL,
-  `sk` enum('ada','belum ada') NOT NULL
+  `sk` enum('ada','belum ada') NOT NULL,
+  `status` enum('Aktif','Non Aktif') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `honor`
 --
 
-INSERT INTO `honor` (`id_honor`, `nama`, `tempat_lahir`, `tgl_lahir`, `agama`, `unit_kerja`, `sk`) VALUES
-(5, 'Henny Julia Mandacan, SE', 'Manokwari', '1987-07-27', 'K.Protestan', 'Dinkes', 'ada'),
-(6, 'Nataniel Rumadas', 'Manokwari', '1976-01-16', 'K.Protestan', 'Dinkes', 'ada'),
-(7, 'Liberti Margareta, A.Md.Gizi', 'Bakka', '1986-03-28', 'K.Protestan', 'PKM. Amban', 'ada'),
-(9, 'Andi Mardiana, A.Md.Kep', 'Dili', '1990-01-12', 'Islam', 'PKM. Sanggeng', 'ada');
+INSERT INTO `honor` (`id_honor`, `nama`, `tempat_lahir`, `tgl_lahir`, `agama`, `unit_kerja`, `sk`, `status`) VALUES
+(5, 'Henny Julia Mandacan, SE', 'Manokwari', '1987-07-27', 'K.Protestan', 'Dinkes', 'ada', 'Aktif'),
+(6, 'Nataniel Rumadas', 'Manokwari', '1976-01-16', 'K.Protestan', 'Dinkes', 'ada', 'Aktif'),
+(7, 'Liberti Margareta, A.Md.Gizi', 'Bakka', '1986-03-28', 'K.Protestan', 'PKM. Amban', 'ada', 'Aktif'),
+(9, 'Andi Mardiana, A.Md.Kep', 'Dili', '1990-01-12', 'Islam', 'PKM. Sanggeng', 'ada', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -128,6 +129,7 @@ CREATE TABLE `pegawai` (
   `unit_kerja` varchar(50) NOT NULL,
   `tgl_jabatan` date NOT NULL,
   `jenis_jabatan` enum('fungsional','struktural') NOT NULL,
+  `status` enum('Aktif','Non Aktif') NOT NULL,
   `password` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -135,14 +137,14 @@ CREATE TABLE `pegawai` (
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `id_jabatan`, `nip`, `nama`, `tempat_lahir`, `tgl_lahir`, `agama`, `karpeg`, `tmtcpns`, `noskcp`, `tgl_skcp`, `tmtpns`, `noskpn`, `tgl_pns`, `profesi`, `unit_kerja`, `tgl_jabatan`, `jenis_jabatan`, `password`) VALUES
-(8, 10, '123456789098765432', 'Bambang', 'Ambon', '2020-07-08', 'K.Protestan', '67', '2020-07-22', '88', '2020-07-13', '2018-07-16', '999', '2018-07-23', 'Pegawai', 'Dinas Kesehatan', '2018-07-20', 'struktural', '$2y$10$MzGc0StpdBLpoDR5EQ.g0uetIbu9/MCNnAoS0fPv2C8tcxXAcVX.e'),
-(9, 10, '987654322123456784', 'Maya', 'Ambon', '2020-07-08', 'K.Protestan', '67', '2020-07-22', '88', '2020-07-13', '2019-07-16', '999', '2020-07-23', 'Pegawai', 'Dinas Kesehatan', '2020-07-20', 'fungsional', '$2y$10$RRlgyEf5AvmDYoHnhHRfMuZAsZBEWDa8NYEg9ZXZ4F42YjNX.VgE2'),
-(18, 13, '196303231999031006', 'dr. Alfred Bandaso', 'Rantepao', '1983-03-23', 'K.Protestan', 'L.011367', '1999-03-01', 'KP.00.02.2.4.3383', '1999-05-18', '2018-01-03', 'KP.00.03.1.3.224', '2000-06-26', 'Dokter Umum', 'Dinas Kesehatan', '2018-12-14', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
-(19, 18, '196606071988032014', 'Yosina Orboi, SKM.', 'Manokwari', '1966-06-07', 'K.Protestan', 'E.685512', '1988-03-01', '2560/KANWIL/SK/TU-1/', '1988-07-06', '1990-01-01', '4483/KANWIL/SK/TU-1/', '1989-12-12', 'Kesmas', 'Dinas Kesehatan', '2019-10-01', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
-(20, 19, '197003121993021005', 'Marthen Lallo Rantetampang, SKM, M.Si', 'Bibang Desa Bulo', '1970-03-12', 'K.Protestan', 'G.106764', '1993-02-01', 'KP.00.02.1.2441', '1993-05-15', '1995-02-01', 'KP.00.03.1.5640', '1994-12-21', 'Kesmas', 'Dinas Kesehatan', '2016-10-01', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
-(21, 17, '197312301997122001', 'Regina Ester Paririe, AMK', 'Jayapura', '1973-12-30', 'K.Protestan', 'J.153248   ', '1997-12-01', 'KP.00.02.2.4.05176', '1998-03-09', '1999-08-01', 'KP.00.03.1.2287', '2020-08-17', 'Perawat', 'Dinas Kesehatan', '2017-05-19', 'fungsional', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
-(22, 19, '196411301989031011', 'Suharso, SKM, M.Si', 'Semarang', '1964-11-30', 'Islam', 'E.737373', '1989-03-01', 'KP. 00.02.2.47173', '1989-06-01', '1990-09-01', '3231/KANWIL/SK/TU-1V', '1990-08-04', 'Kesmas', 'Dinas Kesehatan', '2014-10-01', 'fungsional', '$2y$10$m3yYhXEaurhWwO0pDINOROdOd.n3T/fcXELXHzRRt9UWi1RS1V6E2');
+INSERT INTO `pegawai` (`id_pegawai`, `id_jabatan`, `nip`, `nama`, `tempat_lahir`, `tgl_lahir`, `agama`, `karpeg`, `tmtcpns`, `noskcp`, `tgl_skcp`, `tmtpns`, `noskpn`, `tgl_pns`, `profesi`, `unit_kerja`, `tgl_jabatan`, `jenis_jabatan`, `status`, `password`) VALUES
+(8, 10, '123456789098765432', 'Bambang', 'Ambon', '2020-07-08', 'K.Protestan', '67', '2020-07-22', '88', '2020-07-13', '2018-07-16', '999', '2018-07-23', 'Pegawai', 'Dinas Kesehatan', '2018-07-20', 'struktural', 'Aktif', '$2y$10$MzGc0StpdBLpoDR5EQ.g0uetIbu9/MCNnAoS0fPv2C8tcxXAcVX.e'),
+(9, 10, '987654322123456784', 'Maya', 'Ambon', '2020-07-08', 'K.Protestan', '67', '2020-07-22', '88', '2020-07-13', '2019-07-16', '999', '2020-07-23', 'Pegawai', 'Dinas Kesehatan', '2020-07-20', 'fungsional', 'Aktif', '$2y$10$RRlgyEf5AvmDYoHnhHRfMuZAsZBEWDa8NYEg9ZXZ4F42YjNX.VgE2'),
+(18, 13, '196303231999031006', 'dr. Alfred Bandaso', 'Rantepao', '1983-03-23', 'K.Protestan', 'L.011367', '1999-03-01', 'KP.00.02.2.4.3383', '1999-05-18', '2018-01-03', 'KP.00.03.1.3.224', '2000-06-26', 'Dokter Umum', 'Dinas Kesehatan', '2018-12-14', 'fungsional', 'Aktif', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
+(19, 18, '196606071988032014', 'Yosina Orboi, SKM.', 'Manokwari', '1966-06-07', 'K.Protestan', 'E.685512', '1988-03-01', '2560/KANWIL/SK/TU-1/', '1988-07-06', '1990-01-01', '4483/KANWIL/SK/TU-1/', '1989-12-12', 'Kesmas', 'Dinas Kesehatan', '2019-10-01', 'fungsional', 'Aktif', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
+(20, 19, '197003121993021005', 'Marthen Lallo Rantetampang, SKM, M.Si', 'Bibang Desa Bulo', '1970-03-12', 'K.Protestan', 'G.106764', '1993-02-01', 'KP.00.02.1.2441', '1993-05-15', '1995-02-01', 'KP.00.03.1.5640', '1994-12-21', 'Kesmas', 'Dinas Kesehatan', '2016-10-01', 'fungsional', 'Aktif', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
+(21, 17, '197312301997122001', 'Regina Ester Paririe, AMK', 'Jayapura', '1973-12-30', 'K.Protestan', 'J.153248   ', '1997-12-01', 'KP.00.02.2.4.05176', '1998-03-09', '1999-08-01', 'KP.00.03.1.2287', '2020-08-17', 'Perawat', 'Dinas Kesehatan', '2017-05-19', 'fungsional', 'Aktif', '$2y$10$Vy5Fn4W3KIDUVBGrzf2I5OGQGuuzR1WHljL9B8rHQblIYkNPOocC2'),
+(22, 19, '196411301989031011', 'Suharso, SKM, M.Si', 'Semarang', '1964-11-30', 'Islam', 'E.737373', '1989-03-01', 'KP. 00.02.2.47173', '1989-06-01', '1990-09-01', '3231/KANWIL/SK/TU-1V', '1990-08-04', 'Kesmas', 'Dinas Kesehatan', '2014-10-01', 'fungsional', 'Aktif', '$2y$10$m3yYhXEaurhWwO0pDINOROdOd.n3T/fcXELXHzRRt9UWi1RS1V6E2');
 
 -- --------------------------------------------------------
 
@@ -236,22 +238,6 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `pengguna`
   MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `berkas`
---
-ALTER TABLE `berkas`
-  ADD CONSTRAINT `fk_berkas_pegawai1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `pegawai`
---
-ALTER TABLE `pegawai`
-  ADD CONSTRAINT `fk_pegawai_jabatan` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -44,7 +44,13 @@
                         <td><?= $row['agama']; ?></td>
                         <td><?= ucwords($row['unit_kerja']); ?></td>
                         <td><?= ucwords($row['sk']); ?></td>
-                        <td><?= ucwords($row['status']); ?></td>
+                        <td>
+                            <?php if($row['status']=='Aktif'): ?>
+                            <span class="badge badge-success"><?= $row['status']; ?></span>
+                            <?php else: ?>
+                            <span class="badge badge-danger"><?= $row['status']; ?></span>
+                            <?php endif; ?>
+                        </td>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <td>
                             <a href="<?=base_url('pegawai/edit_honor/').$row['id_honor'];?>"

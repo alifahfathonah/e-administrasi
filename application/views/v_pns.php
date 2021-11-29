@@ -66,7 +66,13 @@
                         <td><?= $row['profesi']; ?></td>
                         <td><?= $row['unit_kerja']; ?></td>
                         <td><?= $row['tgl_jabatan']; ?></td>
-                        <td><?= $row['status']; ?></td>
+                        <td>
+                            <?php if($row['status']=='Aktif'): ?>
+                            <span class="badge badge-success"><?= $row['status']; ?></span>
+                            <?php else: ?>
+                            <span class="badge badge-danger"><?= $row['status']; ?></span>
+                            <?php endif; ?>
+                        </td>
                         <?php if($this->session->userdata('level')=='admin' || $this->session->userdata('level')=='staf'): ?>
                         <td>
                             <a href="<?=base_url('pegawai/edit_pns/').$row['id_pegawai'];?>"
